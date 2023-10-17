@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Welcome to"|capfirst %} {{block.super}}{% endblock title %}
+{% block content %}
+    <h1>{% trans "about us"|capfirst %}</h1>
+    <ul>
+        {{ about_us_content.content|safe }}
+    </ul>
+{% endblock content%}

@@ -1,0 +1,84 @@
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color for the body */
+body {
+    background-color: #F2D0A7;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header */
+header {
+    background-color: #171559;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+header a:hover {
+    color: #D94169;
+}
+
+.nav {
+    list-style: none;
+}
+
+.nav li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.nav .logo {
+    font-size: 24px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.nav .spacer {
+    flex: 1;
+}
+
+/* Style the main content */
+main {
+    padding: 20px;
+}
+
+/* Style the message boxes */
+.box {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.box-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.box-error {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Style the footer */
+footer {
+    background-color: #171559;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+.remember-me-1-hex { color: #D94169; } hvr
+.remember-me-2-hex { color: #171559; } hdr ftr
+.remember-me-3-hex { color: #F2D0A7; } bg color
+.remember-me-4-hex { color: #F29F80; }
+.remember-me-5-hex { color: #F26363; }
+

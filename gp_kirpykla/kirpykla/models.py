@@ -102,3 +102,15 @@ class BarberReview(models.Model):
         return reverse("barberreview_detail", kwargs={"pk": self.pk})
 
 
+class AboutUs(models.Model):
+    content = HTMLField(_("content"), blank=True, null=True)
+
+    class Meta:
+        verbose_name = _("about us")
+        verbose_name_plural = _("about us")
+
+    def __str__(self):
+        return self.content
+
+    def get_absolute_url(self):
+        return reverse("aboutus_detail", kwargs={"pk": self.pk})

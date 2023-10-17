@@ -19,6 +19,9 @@ class ServiceAdmin(admin.ModelAdmin):
     list_display_links = ("name", )
     search_fields = ("service__name", )
     readonly_fields = ("id", )
+
+class AboutUsAdmin(admin.ModelAdmin):
+    list_display = ("content", )
     
 
 @admin.register(models.BarberReview)
@@ -29,5 +32,5 @@ class BarberReviewAdmin(admin.ModelAdmin):
 
 admin.site.register(models.ServiceOrder, ServiceOrderAdmin)
 admin.site.register(models.Service, ServiceAdmin)
-
+admin.site.register(models.AboutUs, AboutUsAdmin)
 
