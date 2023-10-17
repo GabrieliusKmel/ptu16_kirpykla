@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Order Service</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="datetime-local" name="service_time" id="id_service_time">
+    <input type="submit" value="Order Service">
+  </form>
+  <a href="{% url 'service_list' %}">Back to Service List</a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const serviceTimeInput = document.getElementById('id_service_time');
+      serviceTimeInput.valueAsDate = new Date();  // Initialize with the current date and time
+    });
+  </script>
+{% endblock %}

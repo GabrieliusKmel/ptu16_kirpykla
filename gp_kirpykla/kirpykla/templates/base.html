@@ -13,11 +13,11 @@
 <body>
     <header>
         <ul class="nav">
-            <li class="logo">PTU16 {% trans "barbershop"|title %}</li>
+            <li class="logo"><a href="{% url "index" %}">PTU16 {% trans "barbershop"|title %}</a></li>
             <li><a href="{% url "index" %}">{% trans "home"|title %}</a></li>
-            <li><a href>{% trans "services"|title %}</a></li>
+            <li><a href="{% url "about_us" %}">{% trans "about us"|capfirst %}</a></li>
+            <li><a href="{% url "service_list" %}">{% trans "services"|title %}</a></li>
             <li><a href>{% trans "reviews"|title %}</a></li>
-            <li><a href="{% url "about_us" %}">{% trans "about us"|title %}</a></li>
             <li class="spacer"></li>
             {% if user.is_authenticated %}
                 <li><a href=>{% trans "my reservations"|title %}</a></li>

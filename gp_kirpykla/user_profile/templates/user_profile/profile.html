@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load static %}
-{% block title %}{{ user }}{% trans "profile at" %} {{ block.super }}{% endblock title %}
+{% block title %}{{ user }}{% trans " profile at" %} {{ block.super }}{% endblock title %}
 {% block content %}
 <h1>{{ user }} {% trans "profile" %}</h1>
 <p>{% trans "full name"|capfirst %}: {{ user.first_name}} {{ user.last_name}} </p>

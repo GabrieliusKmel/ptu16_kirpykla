@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.contrib.auth import get_user_model
 from tinymce.models import HTMLField
 from datetime import timedelta
+from django.contrib.auth.models import User
 
 
 User = get_user_model()

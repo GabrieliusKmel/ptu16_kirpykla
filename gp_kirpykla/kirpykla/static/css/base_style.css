@@ -8,17 +8,29 @@ body {
     min-height: 100vh;
 }
 h1 {
+    font-size: 2.5rem;
+    color: #171559;
     padding-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    background-size: 100% 100%;
 }
 main {
     flex-grow: 1;
 }
 p {
-    padding: 0 1rem;
+    padding-left: 1rem;
+    padding-top: 0rem;
+    margin-top: 1rem;
+    padding-right: 0;
+    padding-bottom: 0;
 }
 header {
     padding: 1rem;
     margin:  0;
+}
+.logo:hover {
+    color: #D94169;
 }
 header {
     background-color: #171559;
@@ -49,9 +61,6 @@ header ul.nav li {
 .num {
     color: #ff0000;
 }
-.logo a:hover {
-    color: #ff0000;
-}
 li.spacer {
     flex-grow: 1;
 }
@@ -79,6 +88,8 @@ footer {
 }
 ul {
     padding-left: 0.5rem;
+    padding-top: 0rem;
+    margin: 0;
 }
 
 
