@@ -22,7 +22,7 @@
             {% if user.is_authenticated %}
                 <li><a href=>{% trans "my reservations"|title %}</a></li>
                 {% if user.is_superuser or user.is_staff %}
-                    <li><a href=>{% trans "admin"|title %}</a></li>
+                    <li><a href="{% url "admin:index" %}">{% trans "admin"|title %}</a></li>
                 {% endif %}
                     <li><a href="{% url "profile" %}">{{ user.username }}</a></li>
                     <li><a href="{% url "logout" %}">{% trans "logout"|title %}</a></li>
