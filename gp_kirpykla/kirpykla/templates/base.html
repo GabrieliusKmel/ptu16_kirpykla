@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PTU16 Barbershop{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static "css/base_style.css" %}">
+    <style></style>
+</head>
+<body>
+    <header>
+        <ul class="nav">
+            <li class="logo">PTU16 {% trans "barbershop"|title %}</li>
+            <li><a href>{% trans "home"|title %}</a></li>
+            <li><a href>{% trans "services"|title %}</a></li>
+            <li><a href>{% trans "reviews"|title %}</a></li>
+            <li><a href>{% trans "about us"|title %}</a></li>
+            <li class="spacer"></li>
+            {% if user.is_authenticated %}
+                <li><a href=>{% trans "my reservations"|title %}</a></li>
+                {% if user.is_superuser or user.is_staff %}
+                    <li><a href=>{% trans "admin"|title %}</a></li>
+                {% endif %}
+                    <li><a href="{% url "profile" %}">{{ user.username }}</a></li>
+                    <li><a href="{% url "logout" %}">{% trans "logout"|title %}</a></li>
+            {% else %}
+                <li><a href="{% url "login" %}">{% trans "login"|title %}</a></li>
+                <li><a href="{% url "signup" %}">{% trans "sign up"|title %}</a></li>
+            {% endif %}
+            <li>
+                <form class="inline-form" action="{% url "set_language" %}" method="post">
+                    {% csrf_token %}
+                    <select name="language" onchange="this.form.submit();">
+                        {% for language_code, language_name in LANGUAGES %}
+                            <option value="{{ language_code }}" {% if language_code == LANGUAGE_CODE %}selected{% endif %}>
+                                {{ language_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </li>
+        </ul>
+    </header>
+    <main>
+        {% if messages %}
+            {% for message in messages %}
+            <div class="box box-{{ message.tags }}">
+                {{ message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+        {% block content%}
+        {% endblock content%}
+    </main>
+    <footer>
+        <p>&copy; PTU16 {% trans "barbershop"|title %}</p>
+    </footer>
+</body>
+</html>

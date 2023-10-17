@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans "log into"|title %} {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>{% trans "log in"|capfirst %}</h1>
+<form method="post" action="{% url "login" %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><button type="submit">{% trans "log in"|capfirst %}</button></p>
+</form>
+<p><a href="{% url "password_reset" %}">{% trans "forgot password"|capfirst %}?</a></p>
+<p>{% trans "don't have an account"|capfirst %}? <a href="{% url "signup" %}">{% trans "sign up" %}</a>!</p>
+{% endblock content %}
