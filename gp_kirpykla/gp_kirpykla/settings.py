@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'kirpykla',
     'user_profile',
+    'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +47,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -107,6 +109,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+LANGUAGES = (
+    (LANGUAGE_CODE, 'US English'),
+    ('lt', 'Lietuvių'),
+)
 
 TIME_ZONE = 'UTC'
 
@@ -119,8 +125,35 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR.joinpath(STATIC_URL)
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR.joinpath(MEDIA_URL)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = local_settings.EMAIL_HOST
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = local_settings.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = local_settings.EMAIL_HOST_PASSWORD
+
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 300,
+    'cleanup_on_startup': False,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'plugins': 'contextmenu textcolor lists directionality visualchars charmap media image advlist autolink code',
+    'toolbar1': '''
+            code removeformat | formatselect bold italic underline forecolor backcolor | 
+            alignleft alignright aligncenter alignjustify | indent outdent bullist numlist |
+            visualblocks visualchars | charmap | image media
+            ''',
+    'statusbar': True,
+    'menubar': False,
+}

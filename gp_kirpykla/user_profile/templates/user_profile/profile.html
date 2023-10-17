@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{{ user }}{% trans "profile at" %} {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>{{ user }} {% trans "profile" %}</h1>
+{% if user.profile.photo %}
+    <img class="profile-photo" src="{{ user.profile.photo.url }}">
+{% else %}
+    <img src="{% static "user_profile/img/default_car.jpg" %}">
+{% endif %}
+<p>{% trans "full name"|capfirst %}: {{ user.first_name}} {{ user.last_name}} </p>
+<p>{% trans "email"|capfirst %}: {{ user.email }}
+<p><a href="{% url "profile_update" %}" class="btn">{% trans "update"|capfirst %}</a></p>
+{% endblock content %}</p>
