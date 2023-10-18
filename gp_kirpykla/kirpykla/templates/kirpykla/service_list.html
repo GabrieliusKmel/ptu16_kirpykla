@@ -15,7 +15,7 @@
         <tbody>
             {% for service in services %}
             <tr>
-                <td>{{ service.name }}</td>
+                <td><a href="{% url 'book_service' %}?service_id={{ service.id }}">{{ service.name }}</a></td>
                 <td>${{ service.price }}</td>
                 <td>{{ service.duration }}</td>
                 <td>{{ service.about|safe }}</td>
