@@ -17,6 +17,7 @@
             <li><a href="{% url "index" %}">{% trans "home"|title %}</a></li>
             <li><a href="{% url "about_us" %}">{% trans "about us"|capfirst %}</a></li>
             <li><a href="{% url "service_list" %}">{% trans "services"|title %}</a></li>
+            <li><a href="{% url "book_service" %}">{% trans "booking"|title %}</a></li>
             <li><a href>{% trans "reviews"|title %}</a></li>
             <li class="spacer"></li>
             {% if user.is_authenticated %}

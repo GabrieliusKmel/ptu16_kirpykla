@@ -5,10 +5,13 @@ from django.contrib.auth import get_user_model
 from tinymce.models import HTMLField
 from datetime import timedelta
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
+from django.utils import timezone
 
 
 User = get_user_model()
 
+    
 
 class Service(models.Model):
     name = models.CharField(_("name"), max_length=50)
@@ -25,6 +28,7 @@ class Service(models.Model):
 
     def get_absolute_url(self):
         return reverse("service_detail", kwargs={"pk": self.pk})
+    
     
 SERVICEORDER_STATUS = (
     (0, _("confirmed")),
@@ -70,6 +74,16 @@ class ServiceOrder(models.Model):
 
     def get_absolute_url(self):
         return reverse("serviceorder_detail", kwargs={"pk": self.pk})
+    
+    def validate_service_time(service_time, service_duration):
+        working_hours_start = timezone.now().replace(hour=10, minute=0, second=0, microsecond=0)
+        working_hours_end = timezone.now().replace(hour=17, minute=0, second=0, microsecond=0)
+        if service_time < timezone.now():
+            raise ValidationError("Service time cannot be in the past.")
+        if service_time < working_hours_start:
+            raise ValidationError("Barbershop is closed at that time.")
+        if service_time + service_duration > working_hours_end:
+            raise ValidationError("Service duration exceeds working hours.")
 
 
 class BarberReview(models.Model):
@@ -101,6 +115,8 @@ class BarberReview(models.Model):
 
     def get_absolute_url(self):
         return reverse("barberreview_detail", kwargs={"pk": self.pk})
+    
+    
 
 
 class AboutUs(models.Model):

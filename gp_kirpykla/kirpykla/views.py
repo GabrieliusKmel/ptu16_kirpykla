@@ -32,14 +32,32 @@ class ServiceListView(ListView):
     context_object_name = 'services'
 
 
+def book_service(request):
+    if request.method == 'POST':
+        form = forms.ServiceOrderForm(request.POST)
+        if form.is_valid():
+            # Get the selected service time and barber
+            service_time = form.cleaned_data['service_time']
+            barber = form.cleaned_data['barber']
 
-class OrderServiceCreateView(LoginRequiredMixin, CreateView):
-    model = models.ServiceOrder
-    form_class = forms.ServiceOrderForm
-    template_name = 'kirpykla/order_service.html'
-    success_url = reverse_lazy('service_list')
+            # Check for overlapping orders
+            overlapping_orders = models.ServiceOrder.objects.filter(
+                barber=barber,
+                service_time__lte=service_time + form.cleaned_data['service'].duration,
+                service_time__gte=service_time
+            )
 
-    def form_valid(self, form):
-        form.instance.owner = self.request.user
-        messages.success(self.request, 'Užsakymas atliktas sėkmingai.')
-        return super().form_valid(form)
+            if overlapping_orders.exists():
+                form.add_error(None, "Barber is already booked at this time.")
+            else:
+                form.save()  # Save the order if there are no overlaps
+                return redirect('booking_success')
+
+    else:
+        form = forms.ServiceOrderForm()
+
+    return render(request, 'kirpykla/booking_form.html', {'form': form})
+
+def booking_success(request):
+    # Your view logic here
+    return render(request, 'kirpykla/booking_success.html')
