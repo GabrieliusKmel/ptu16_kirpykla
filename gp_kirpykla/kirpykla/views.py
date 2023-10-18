@@ -36,28 +36,12 @@ def book_service(request):
     if request.method == 'POST':
         form = forms.ServiceOrderForm(request.POST)
         if form.is_valid():
-            # Get the selected service time and barber
-            service_time = form.cleaned_data['service_time']
-            barber = form.cleaned_data['barber']
-
-            # Check for overlapping orders
-            overlapping_orders = models.ServiceOrder.objects.filter(
-                barber=barber,
-                service_time__lte=service_time + form.cleaned_data['service'].duration,
-                service_time__gte=service_time
-            )
-
-            if overlapping_orders.exists():
-                form.add_error(None, "Barber is already booked at this time.")
-            else:
-                form.save()  # Save the order if there are no overlaps
-                return redirect('booking_success')
-
+            form.save()
+            return redirect('booking_success')
     else:
         form = forms.ServiceOrderForm()
-
     return render(request, 'kirpykla/booking_form.html', {'form': form})
 
 def booking_success(request):
-    # Your view logic here
     return render(request, 'kirpykla/booking_success.html')
+

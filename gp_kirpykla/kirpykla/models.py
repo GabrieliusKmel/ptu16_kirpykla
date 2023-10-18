@@ -75,9 +75,11 @@ class ServiceOrder(models.Model):
     def get_absolute_url(self):
         return reverse("serviceorder_detail", kwargs={"pk": self.pk})
     
-    def validate_service_time(service_time, service_duration):
+    def validate_service_time(self):
         working_hours_start = timezone.now().replace(hour=10, minute=0, second=0, microsecond=0)
         working_hours_end = timezone.now().replace(hour=17, minute=0, second=0, microsecond=0)
+        service_time = self.service_time
+        service_duration = self.service.duration
         if service_time < timezone.now():
             raise ValidationError("Service time cannot be in the past.")
         if service_time < working_hours_start:

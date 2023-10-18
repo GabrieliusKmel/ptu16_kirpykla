@@ -21,9 +21,6 @@
           <td>{{ service.name }}</td>
           <td>{{ service.price }}</td>
           <td>{{ service.duration }}</td>
-          {% if user.is_authenticated %}
-            <td><a href="{% url 'order_service' service.pk %}">Order</a></td>
-          {% endif %}
         </tr>
       {% endfor %}
     </tbody>
