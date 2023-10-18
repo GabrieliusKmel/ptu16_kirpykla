@@ -4,9 +4,22 @@ from django.core.exceptions import ValidationError
 from django.utils import timezone
 
 class ServiceOrderForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Filter barbers with is_staff=True
+        barber_choices = [(barber.id, barber.get_full_name()) for barber in models.User.objects.filter(is_staff=True)]
+        self.fields['barber'].choices = barber_choices
+        self.fields['barber'].label = 'Choose a barber:'
+        service_choices = [(service.id, service.name) for service in models.Service.objects.all()]
+        self.fields['service'].choices = service_choices
+        self.fields['service'].label = 'Choose a service:'
+
     class Meta:
         model = models.ServiceOrder
-        fields = ['barber', 'service', 'customer', 'service_time', 'status']
+        fields = ['barber', 'service', 'service_time']
+        labels = {
+            'service_time': 'Choose a service time:',
+        }
 
     def clean_service_time(self):
         service_time = self.cleaned_data['service_time']

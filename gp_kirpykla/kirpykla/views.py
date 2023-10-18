@@ -36,6 +36,7 @@ def book_service(request):
     if request.method == 'POST':
         form = forms.ServiceOrderForm(request.POST)
         if form.is_valid():
+            form.instance.customer = request.user
             form.save()
             return redirect('booking_success')
     else:

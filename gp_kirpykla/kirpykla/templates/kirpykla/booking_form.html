@@ -2,9 +2,10 @@
 {% load i18n %}
 {% block title %}{% trans "booking"|capfirst %} {{block.super}}{% endblock title %}
 {% block content %}
+<h1>{% trans "booking"|capfirst %}</h1>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Book Service</button>
+  <button type="submit">Book</button>
 </form>
 {% endblock content%}
