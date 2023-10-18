@@ -1,28 +1,26 @@
-{% extends 'base.html' %}
-{% load i18n %}
+{% extends "base.html" %}
 {% load static %}
-{% block title %}{% trans "services at"|capfirst %} {{ block.super }}{% endblock title %}
+{% load i18n %}
 {% block content %}
-  <h1>Service list</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Service</th>
-        <th>Price</th>
-        <th>Duration</th>
-        {% if user.is_authenticated %}
-          <th>Action</th>
-        {% endif %}
-      </tr>
-    </thead>
-    <tbody>
-      {% for service in services %}
-        <tr>
-          <td>{{ service.name }}</td>
-          <td>{{ service.price }}</td>
-          <td>{{ service.duration }}</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-{% endblock %}
+    <h1>{% trans "service"|capfirst %}</h1>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>{% trans "name"|capfirst %}</th>
+                <th>{% trans "price"|capfirst %}</th>
+                <th>{% trans "duration"|capfirst %}</th>
+                <th>{% trans "about service"|capfirst %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for service in services %}
+            <tr>
+                <td>{{ service.name }}</td>
+                <td>${{ service.price }}</td>
+                <td>{{ service.duration }}</td>
+                <td>{{ service.about|safe }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

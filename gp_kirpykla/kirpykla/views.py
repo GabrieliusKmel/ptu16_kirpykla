@@ -28,7 +28,7 @@ def about_us(request):
 
 class ServiceListView(ListView):
     model = models.Service
-    template_name = 'service_list.html'
+    template_name = 'kirpykla/service_list.html'
     context_object_name = 'services'
 
 
