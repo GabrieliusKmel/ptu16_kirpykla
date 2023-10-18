@@ -91,30 +91,7 @@ ul {
     padding-top: 0rem;
     margin: 0;
 }
-table.styled-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #F29F80;
-    border: 1px solid #ddd;
-    margin: 10px 0;
-}
-table.styled-table th, table.styled-table td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-}
-table.styled-table th {
-    background-color: #171559;
-    color: #afafaf;
-}
-.table-success {
-    background-color: #28a745;
-    color: #fff;
-}
-.table-error {
-    background-color: #dc3545;
-    color: #fff;
-}
+
 
 .remember-me-1-hex { color: #D94169; } hvr
 .remember-me-2-hex { color: #171559; } hdr ftr
