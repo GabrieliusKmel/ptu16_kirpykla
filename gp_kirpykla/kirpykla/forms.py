@@ -58,9 +58,10 @@ class ServiceOrderForm(forms.ModelForm):
 class BarberReviewForm(forms.ModelForm):
     class Meta:
         model = models.BarberReview
-        fields = ('reviewer', 'content')
+        fields = ('barber', 'reviewer', 'content')
         widgets = {
             'reviewer': forms.HiddenInput(),
+            'barber': forms.HiddenInput(),
         }
         labels = {
             'content': '',

@@ -4,11 +4,11 @@
 {% block content %}
 <h1>Choose a barber to write a review</h1>
 <div class="service-cards">
-    {% for barberreview in barberreview.all %}
+    {% for barber in barber_list.all %}
     <div class="service-card">
-        <a href="{% url 'barberreview_detail' barberreview.pk %}" class="svg-image">
+        <a href="{% url 'barber_detail' barber.pk %}" class="svg-image">
             <img src="{% static 'img/scissors.svg' %}">
-            <h2>{{ barberreview.get_full_name }}</h2>
+            <h2>{{ barber.get_full_name }}</h2>
         </a>
     </div>
     {% endfor %}

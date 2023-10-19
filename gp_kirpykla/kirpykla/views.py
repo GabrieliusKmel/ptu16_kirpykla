@@ -2,6 +2,7 @@ from typing import Any
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
+from django.db import models
 from django.db.models.query import QuerySet
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
@@ -82,23 +83,22 @@ class ServiceOrderCancelView(View):
 
         return redirect('serviceorder_list')
     
-def barberreview(request):
+def barber_list(request):
     return render(
         request,
-        "kirpykla/barberreview.html",
-        {"barberreview": models.User.objects.filter(is_staff=True)}
+        "kirpykla/barber_list.html",
+        {"barber_list": models.User.objects.filter(is_staff=True)}
     )
 
-class BarberReviewDetailView(generic.edit.FormMixin, generic.DetailView):
-    model = models.BarberReview
-    template_name = 'kirpykla/barberreview_detail.html'
+class BarberDetailView(generic.edit.FormMixin, generic.DetailView):
+    model = models.User
+    template_name = 'kirpykla/barber_detail.html'
     form_class = forms.BarberReviewForm
 
     def get_initial(self):
         initial = super().get_initial()
-        initial['barberreview'] = self.get_object()
-        initial['reviewer'] = self.request.user.id
-        initial['barber_id'] = self.object.barber_id
+        initial['barber'] = self.get_object()
+        initial['reviewer'] = self.request.user
         return initial
 
     def post(self, *args, **kwargs):
@@ -110,18 +110,16 @@ class BarberReviewDetailView(generic.edit.FormMixin, generic.DetailView):
             return self.form_invalid(form)
 
     def form_valid(self, form):
-        form.instance.barberreview = self.object
+        form.instance.barber = self.object
         form.instance.reviewer = self.request.user
-        form.instance.barber_id = self.object.barber_id  # Set the barber_id
         form.save()
         messages.success(self.request, _('Atsiliepimas pridėtas sėkmingai.'))
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('barberreview_detail', kwargs={'pk': self.object.pk})
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['selected_barber_id'] = self.get_object().barber.id
-        context['reviews'] = models.BarberReview.objects.filter(barber=context['selected_barber_id'])
-        return context
+        return reverse('barber_detail', kwargs={'pk': self.object.pk})
+    
+    # def get_queryset(self) -> QuerySet[Any]:
+    #     queryset = super().get_queryset()
+    #     queryset = queryset.filter(is_staff=True)
+    #     return queryset

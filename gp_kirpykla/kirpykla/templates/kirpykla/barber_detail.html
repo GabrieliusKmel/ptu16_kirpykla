@@ -11,9 +11,9 @@
     <p><button type="submit">Review</button></p>
 </form>
 {% endif %}
-{% if reviews %}
+{% if object.customer_reviews %}
 <ul class="nice-list">
-    {% for review in reviews|dictsortreversed:"created_at" %}
+    {% for review in object.customer_reviews.all|dictsortreversed:"created_at" %}
         <li>
             <h4>
                 <span>{{ review.reviewer }}</span>

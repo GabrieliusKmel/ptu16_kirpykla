@@ -18,7 +18,7 @@
             <li><a href="{% url "about_us" %}">{% trans "about us"|capfirst %}</a></li>
             <li><a href="{% url "service_list" %}">{% trans "services"|title %}</a></li>
             <li><a href="{% url "book_service" %}">{% trans "booking"|title %}</a></li>
-            <li><a href="{% url "barberreview" %}">{% trans "reviews"|title %}</a></li>
+            <li><a href="{% url "barber_list" %}">{% trans "barbers"|title %}</a></li>
             <li class="spacer"></li>
             {% if user.is_authenticated %}
                 <li><a href="{% url "serviceorder_list" %}">{% trans "my reservations"|title %}</a></li>
