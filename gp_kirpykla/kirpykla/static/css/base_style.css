@@ -79,6 +79,13 @@ li.spacer {
     background-color: #dc3545;
     color: #fff;
 }
+.errorlist {
+    background-color: #dc3545;
+    color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+}
 footer {
     background-color: #171559;
     color: #fff;

@@ -49,14 +49,6 @@ def book_service(request):
             form.save()
             messages.success(request, 'Booking successful!')
             return redirect('book_service')
-        else:
-            # Create a set to store unique error messages
-            unique_error_messages = set()
-            for field, errors in form.errors.items():
-                for error in errors:
-                    unique_error_messages.add(error)
-            for error in unique_error_messages:
-                messages.error(request, f"{error}")
     else:
         form = forms.ServiceOrderForm(initial=initial_data)
 
