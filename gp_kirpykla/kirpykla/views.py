@@ -33,16 +33,23 @@ class ServiceListView(ListView):
 
 
 def book_service(request):
+    service_id = request.GET.get('service_id', None)
+    if service_id:
+        service = get_object_or_404(models.Service, id=service_id)
+        initial_data = {'service': service}
+    else:
+        initial_data = {}
+
     if request.method == 'POST':
         form = forms.ServiceOrderForm(request.POST)
         if form.is_valid():
             form.instance.customer = request.user
+            if service_id:
+                form.instance.service = service
             form.save()
-            return redirect('booking_success')
+            messages.success(request, 'Booking successful!')
+            return redirect('book_service')
     else:
-        form = forms.ServiceOrderForm()
+        form = forms.ServiceOrderForm(initial=initial_data)
+
     return render(request, 'kirpykla/booking_form.html', {'form': form})
-
-def booking_success(request):
-    return render(request, 'kirpykla/booking_success.html')
-
