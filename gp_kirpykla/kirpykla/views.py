@@ -81,3 +81,47 @@ class ServiceOrderCancelView(View):
             pass
 
         return redirect('serviceorder_list')
+    
+def barberreview(request):
+    return render(
+        request,
+        "kirpykla/barberreview.html",
+        {"barberreview": models.User.objects.filter(is_staff=True)}
+    )
+
+class BarberReviewDetailView(generic.edit.FormMixin, generic.DetailView):
+    model = models.BarberReview
+    template_name = 'kirpykla/barberreview_detail.html'
+    form_class = forms.BarberReviewForm
+
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['barberreview'] = self.get_object()
+        initial['reviewer'] = self.request.user.id
+        initial['barber_id'] = self.object.barber_id
+        return initial
+
+    def post(self, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        form.instance.barberreview = self.object
+        form.instance.reviewer = self.request.user
+        form.instance.barber_id = self.object.barber_id  # Set the barber_id
+        form.save()
+        messages.success(self.request, _('Atsiliepimas pridėtas sėkmingai.'))
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('barberreview_detail', kwargs={'pk': self.object.pk})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['selected_barber_id'] = self.get_object().barber.id
+        context['reviews'] = models.BarberReview.objects.filter(barber=context['selected_barber_id'])
+        return context

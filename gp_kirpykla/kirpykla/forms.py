@@ -54,3 +54,14 @@ class ServiceOrderForm(forms.ModelForm):
         if potentially_overlapping_order and potentially_overlapping_order.service_time + potentially_overlapping_order.service.duration > service_time:
             raise ValidationError("Barber is already booked at this time.", code='errorbox')
         return service_time
+    
+class BarberReviewForm(forms.ModelForm):
+    class Meta:
+        model = models.BarberReview
+        fields = ('reviewer', 'content')
+        widgets = {
+            'reviewer': forms.HiddenInput(),
+        }
+        labels = {
+            'content': '',
+        }

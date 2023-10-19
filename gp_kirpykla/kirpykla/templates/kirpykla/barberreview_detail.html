@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Review {{ block.super }}{% endblock title %}
+{% block content %}
+<h2>Reviews</h2>
+{% if user.is_authenticated %}
+<form method="post" action="{{ request.path }}">
+    {% csrf_token %}
+    <input type="hidden" name="barber" value="{{ selected_barber_id }}">
+    {{ form.as_p }}
+    <p><button type="submit">Review</button></p>
+</form>
+{% endif %}
+{% if reviews %}
+<ul class="nice-list">
+    {% for review in reviews|dictsortreversed:"created_at" %}
+        <li>
+            <h4>
+                <span>{{ review.reviewer }}</span>
+                <span class="float-right">{{ review.created_at }}</span>
+            </h4>
+            <em>{{ review.content }}</em>
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock content %}
