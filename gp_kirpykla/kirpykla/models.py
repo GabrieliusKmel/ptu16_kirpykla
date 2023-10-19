@@ -87,6 +87,11 @@ class ServiceOrder(models.Model):
             raise ValidationError("Barbershop is closed at that time.")
         if service_time + service_duration > working_hours_end:
             raise ValidationError("Service duration exceeds working hours.")
+    
+    @property
+    def can_cancel(self):
+        now = timezone.now()
+        return self.service_time - now > timezone.timedelta(hours=24)
 
 
 class BarberReview(models.Model):

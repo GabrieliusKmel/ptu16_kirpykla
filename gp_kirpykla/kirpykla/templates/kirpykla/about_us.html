@@ -1,9 +1,13 @@
 {% extends "base.html" %}
+{% load static %}
 {% load i18n %}
 {% block title %}{% trans "About us"|capfirst %} {{block.super}}{% endblock title %}
 {% block content %}
     <h1>{% trans "about us"|capfirst %}</h1>
     <ul>
         {{ about_us_content.content|safe }}
+        <li>
+            <img src="{% static 'img/barbershop.jpg' %}">
+        </li>
     </ul>
-{% endblock content%}
+{% endblock content %}

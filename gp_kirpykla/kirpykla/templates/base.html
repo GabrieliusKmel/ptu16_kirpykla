@@ -21,11 +21,11 @@
             <li><a href>{% trans "reviews"|title %}</a></li>
             <li class="spacer"></li>
             {% if user.is_authenticated %}
-                <li><a href=>{% trans "my reservations"|title %}</a></li>
+                <li><a href="{% url "serviceorder_list" %}">{% trans "my reservations"|title %}</a></li>
                 {% if user.is_superuser or user.is_staff %}
                     <li><a href="{% url "admin:index" %}">{% trans "admin"|title %}</a></li>
                 {% endif %}
-                    <li><a href="{% url "profile" %}">{{ user.username }}</a></li>
+                    <li><a href="{% url "profile" %}">{% trans "My profile"|title %}</a></li>
                     <li><a href="{% url "logout" %}">{% trans "logout"|title %}</a></li>
             {% else %}
                 <li><a href="{% url "login" %}">{% trans "login"|title %}</a></li>

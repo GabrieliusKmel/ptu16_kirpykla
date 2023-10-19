@@ -2,10 +2,17 @@ from django import forms
 from . import models
 from django.core.exceptions import ValidationError
 from django.utils import timezone
+from django.forms import DateTimeInput
 
 class ServiceOrderForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
+        initial = kwargs.get('initial', {})
+        if 'service_time' not in initial:
+            initial['service_time'] = timezone.now().replace(second=0, microsecond=0)
+        kwargs['initial'] = initial
+
         super().__init__(*args, **kwargs)
+
         barber_choices = [(barber.id, barber.get_full_name()) for barber in models.User.objects.filter(is_staff=True)]
         self.fields['barber'].choices = barber_choices
         self.fields['barber'].label = 'Choose a barber:'
@@ -18,6 +25,9 @@ class ServiceOrderForm(forms.ModelForm):
         fields = ['barber', 'service', 'service_time']
         labels = {
             'service_time': 'Choose a service time:',
+        }
+        widgets = {
+            'service_time': DateTimeInput(attrs={'type': 'datetime-local'})
         }
 
     def clean_service_time(self):
@@ -44,8 +54,3 @@ class ServiceOrderForm(forms.ModelForm):
         if potentially_overlapping_order and potentially_overlapping_order.service_time + potentially_overlapping_order.service.duration > service_time:
             raise ValidationError("Barber is already booked at this time.", code='errorbox')
         return service_time
-
-
-
-
-

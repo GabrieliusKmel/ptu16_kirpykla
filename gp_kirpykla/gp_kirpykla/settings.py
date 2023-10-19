@@ -114,7 +114,7 @@ LANGUAGES = (
     ('lt', 'Lietuvių'),
 )
 
-TIME_ZONE = 'Europe/Istanbul'
+TIME_ZONE = 'Europe/Vilnius'
 
 USE_I18N = True
 
