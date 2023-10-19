@@ -6,7 +6,6 @@ from django.utils import timezone
 class ServiceOrderForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Filter barbers with is_staff=True
         barber_choices = [(barber.id, barber.get_full_name()) for barber in models.User.objects.filter(is_staff=True)]
         self.fields['barber'].choices = barber_choices
         self.fields['barber'].label = 'Choose a barber:'
@@ -28,22 +27,25 @@ class ServiceOrderForm(forms.ModelForm):
         working_hours_start = service_time.replace(hour=10, minute=0, second=0, microsecond=0)
         working_hours_end = service_time.replace(hour=17, minute=0, second=0, microsecond=0)
         if service_time < timezone.now():
-            raise ValidationError("Service time cannot be in the past.")
+            raise ValidationError("Service time cannot be in the past.", code='errorbox')
         if service_time < working_hours_start or service_time + service.duration > working_hours_end:
-            raise ValidationError("Service time is outside working hours.")
+            raise ValidationError("Service time is outside working hours.", code='errorbox')
         service_end_time = service_time + service.duration
         potentially_overlapping_order = models.ServiceOrder.objects.filter(
             barber=barber,
             service_time__gte=service_time,
         ).order_by("service_time").first()
-        print(potentially_overlapping_order)
         if potentially_overlapping_order and potentially_overlapping_order.service_time < service_end_time:
-            raise ValidationError("Barber is already booked at this time.")
+            raise ValidationError("Barber is already booked at this time.", code='errorbox')
         potentially_overlapping_order = models.ServiceOrder.objects.filter(
             barber=barber,
             service_time__lte=service_time,
         ).order_by("service_time").last()
         if potentially_overlapping_order and potentially_overlapping_order.service_time + potentially_overlapping_order.service.duration > service_time:
-            raise ValidationError("Barber is already booked at this time.")
-        print(potentially_overlapping_order)
+            raise ValidationError("Barber is already booked at this time.", code='errorbox')
         return service_time
+
+
+
+
+
