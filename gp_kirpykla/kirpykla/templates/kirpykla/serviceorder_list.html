@@ -22,7 +22,7 @@
                 <td>{{ serviceorder.service_time }}</td>
                 <td>
                     {% if serviceorder.status == 2 %}
-                        {% trans "This reservation is cancelled." %}
+                        {% trans "This reservation is cancelled."|capfirst %}
                     {% elif serviceorder.can_cancel %}
                         <a href="{% url 'cancel_service_order' serviceorder.id %}">{% trans "Cancel" %}</a>
                     {% else %}

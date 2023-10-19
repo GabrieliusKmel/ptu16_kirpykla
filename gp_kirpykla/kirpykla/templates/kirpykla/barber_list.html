@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Barbers {{ block.super }}{% endblock title %}
+{% load i18n %}
+{% block title %}{% trans "barbers"|title %} {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Choose a barber to write a review</h1>
+<h1>{% trans "choose a barber to write a review"|capfirst %}</h1>
 <div class="service-cards">
     {% for barber in barber_list.all %}
     <div class="service-card">

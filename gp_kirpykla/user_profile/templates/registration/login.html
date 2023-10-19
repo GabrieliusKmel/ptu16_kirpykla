@@ -10,5 +10,5 @@
     <p><button type="submit">{% trans "log in"|capfirst %}</button></p>
 </form>
 <p><a href="{% url "password_reset" %}">{% trans "forgot password"|capfirst %}?</a></p>
-<p>{% trans "don't have an account"|capfirst %}? <a href="{% url "signup" %}">{% trans "sign up" %}</a>!</p>
+<p>{% trans "don't have an account"|capfirst %}? <a href="{% url "signup" %}">{% trans "sign up"|capfirst %}</a>!</p>
 {% endblock content %}
