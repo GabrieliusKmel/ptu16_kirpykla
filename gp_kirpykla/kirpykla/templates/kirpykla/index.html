@@ -1,10 +1,20 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n static %}
 {% block title %}{% trans "Home"|capfirst %} {{block.super}}{% endblock title %}
 {% block content %}
-    <h1>{% trans "welcome to"|capfirst %} PTU16 {% trans "barbershop"|capfirst %}</h1>
-    <p>{% trans "Current Database Status"|capfirst %}:</p>
-    <ul>
-        <li>{% trans "carsaaaaaa"|capfirst %}</li>
-    </ul>
-{% endblock content%}
+    <style>
+        main {
+            background-image: url('{% static 'img/moving_barber.gif' %}');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 80vh; /* Ensure main takes up the full viewport height */
+        }
+    </style>
+    <main class='juda'>
+        <h2 class='headingas'>{% trans "welcome to"|capfirst %} PTU16 {% trans "barbershop"|capfirst %}</h2>
+    </main>
+{% endblock content %}

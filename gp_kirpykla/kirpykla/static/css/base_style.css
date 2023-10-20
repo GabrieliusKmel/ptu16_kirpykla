@@ -10,10 +10,17 @@ body {
 h1 {
     font-size: 2.5rem;
     color: #171559;
+    background-color: #caa87e;
     padding-left: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+    padding-top: 1rem;
+    margin-top: 0rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
     background-size: 100% 100%;
+    border-bottom: 1px solid #171559;
+    box-shadow: 1px 11px 29px -12px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 11px 29px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 11px 29px -12px rgba(0,0,0,0.75);
 }
 main {
     flex-grow: 1;
@@ -178,7 +185,88 @@ table.styled-table th {
     margin-bottom: 10px;
     transition: transform 0.3s ease; /
 }
+p a {
+    text-decoration: none;
+    font-weight: bold;
+}
+p a:visited {
+    color: inherit;
+}
+p a:hover{
+    color: #D94169;
+}
+p label {
+    min-width: 5rem;
+    display: inline-block;
+}
+ul.nice-list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0.5rem;
+    margin: 1rem;
+    border: 1px solid #171559;
+    background-color: #F29F80;
+    box-shadow: 1px 3px 5px #00000033;
+}
+ul.nice-list li {
+    padding: 0.44rem 0.5rem;
+    border-bottom: 1px solid #171559;
+}
+ul.nice-list li h4 {
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+}
+.float-right {
+    float: right;
+}
+td a {
+    color: black;
+}
+.buttonas {
+    margin-left: 212px;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+p a.btn {
+    border: 1px solid #171559;
+    background-color: #ffffff;
+    padding: 0.25rem;
+    margin-top: 3rem;
+}
+form p label {
+    min-width: 250px;
+}
+.form-field label {
+    min-width: 180px;
+}
+.form-login label {
+    min-width: 125px;
+}
+.form-reset label {
+    min-width: 60px;
+}
 
+.resetforma label {
+    min-width: 210px;
+}
+.form-book label {
+    min-width: 175px;
+}
+.form-book button {
+    margin-left: 195px;
+}
+.headingas {
+    text-align: center;
+    color: #fff; /* Optional: Set text color to be visible on the background */
+}
+.juda h2 {
+    color: #171559;
+    font-size: 6rem;
+    background-size: 100% 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 0.75rem;
+}
 .remember-me-1-hex { color: #D94169; } hvr
 .remember-me-2-hex { color: #171559; } hdr ftr
 .remember-me-3-hex { color: #F2D0A7; } bg color

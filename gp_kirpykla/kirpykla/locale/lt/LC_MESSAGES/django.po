@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-19 20:00+0300\n"
+"POT-Creation-Date: 2023-10-20 08:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,30 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
 "11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
 "1 : n % 1 != 0 ? 2: 3);\n"
+
+#: kirpykla/forms.py:19
+msgid "Choose a barber:"
+msgstr "Pasirinkite kirpėją:"
+
+#: kirpykla/forms.py:22
+msgid "Choose a service:"
+msgstr "Pasirinkite paslaugą:"
+
+#: kirpykla/forms.py:28
+msgid "Choose a service time:"
+msgstr "Pasirinkite paslaugos laiką:"
+
+#: kirpykla/forms.py:41
+msgid "Service time cannot be in the past."
+msgstr "Paslaugos laikas negali būti praeityje."
+
+#: kirpykla/forms.py:43
+msgid "Service time is outside working hours."
+msgstr "Paslaugos laikas yra po kirpyklos darbo valandų."
+
+#: kirpykla/forms.py:50 kirpykla/forms.py:56
+msgid "Barber is already booked at this time."
+msgstr "Kirpėjas yra užimtas šiuo laiku."
 
 #: kirpykla/models.py:18 kirpykla/templates/kirpykla/service_list.html:9
 msgid "name"
@@ -48,16 +72,16 @@ msgid "services"
 msgstr "paslaugos"
 
 #: kirpykla/models.py:35
-msgid "confirmed"
-msgstr "patvirtinta"
+msgid "Confirmed"
+msgstr "Patvirtinta"
 
 #: kirpykla/models.py:36
-msgid "completed"
-msgstr "ivykdyta"
+msgid "Completed"
+msgstr "Įvykdyta"
 
 #: kirpykla/models.py:37
-msgid "cancelled"
-msgstr "atšaukta"
+msgid "Cancelled"
+msgstr "Atšaukta"
 
 #: kirpykla/models.py:44 kirpykla/models.py:100
 msgid "barber"
@@ -222,6 +246,10 @@ msgid ""
 "Cancellation is not allowed because time until reservation is less than 24 "
 "hours."
 msgstr "Atšaukimas yra negalimas likus mažiau nei 24h iki paslaugos laiko"
+
+#: kirpykla/views.py:52
+msgid "Booking successful!"
+msgstr "Užsakymas atliktas sėkmingai."
 
 #: kirpykla/views.py:116
 msgid "Review added successfully."

@@ -3,7 +3,7 @@
 {% load i18n %}
 {% block title %}{% trans "review"|capfirst %} {{ block.super }}{% endblock title %}
 {% block content %}
-<h2>{% trans "reviews"|title %}</h2>
+<h1>{% trans "reviews for "|capfirst %} {{ barber.get_full_name }}</h1>
 {% if user.is_authenticated %}
 <form method="post" action="{{ request.path }}">
     {% csrf_token %}
@@ -12,7 +12,7 @@
     <p><button type="submit">{% trans "review"|capfirst %}</button></p>
 </form>
 {% endif %}
-{% if object.customer_reviews %}
+{% if object.customer_reviews.count > 0 %}
 <ul class="nice-list">
     {% for review in object.customer_reviews.all|dictsortreversed:"created_at" %}
         <li>
@@ -24,5 +24,7 @@
         </li>
     {% endfor %}
 </ul>
+{% else %}
+<p>There are no reviews yet.</p>
 {% endif %}
 {% endblock content %}

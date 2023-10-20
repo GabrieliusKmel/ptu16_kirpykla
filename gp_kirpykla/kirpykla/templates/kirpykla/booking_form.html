@@ -3,10 +3,9 @@
 {% block title %}{% trans "booking"|capfirst %} {{block.super}}{% endblock title %}
 {% block content %}
 <h1>{% trans "booking"|capfirst %}</h1>
-
-<form method="post">
+<form method="post" class='form-book'>
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">{% trans "book"|capfirst %}</button>
+  <button type="submit" class="buttonas">{% trans "book"|capfirst %}</button>
 </form>
 {% endblock content %}

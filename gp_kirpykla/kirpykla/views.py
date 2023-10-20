@@ -49,7 +49,7 @@ def book_service(request):
             if service_id:
                 form.instance.service = service
             form.save()
-            messages.success(request, 'Booking successful!')
+            messages.success(request, _('Booking successful!'))
             return redirect('book_service')
     else:
         form = forms.ServiceOrderForm(initial=initial_data)
@@ -94,6 +94,7 @@ class BarberDetailView(generic.edit.FormMixin, generic.DetailView):
     model = models.User
     template_name = 'kirpykla/barber_detail.html'
     form_class = forms.BarberReviewForm
+    context_object_name = "barber" ## pjovėsi su user'iu, metė klaidą request.user persidengia
 
     def get_initial(self):
         initial = super().get_initial()
@@ -118,6 +119,7 @@ class BarberDetailView(generic.edit.FormMixin, generic.DetailView):
 
     def get_success_url(self):
         return reverse('barber_detail', kwargs={'pk': self.object.pk})
+    
     
     # def get_queryset(self) -> QuerySet[Any]:
     #     queryset = super().get_queryset()

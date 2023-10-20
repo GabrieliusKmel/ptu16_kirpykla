@@ -4,7 +4,7 @@
 {% block title %}{% trans "log into"|title %} {{ block.super }}{% endblock title %}
 {% block content %}
 <h1>{% trans "log in"|capfirst %}</h1>
-<form method="post" action="{% url "login" %}">
+<form method="post" action="{% url "login" %}" class='form-login'>
     {% csrf_token %}
     {{ form.as_p }}
     <p><button type="submit">{% trans "log in"|capfirst %}</button></p>

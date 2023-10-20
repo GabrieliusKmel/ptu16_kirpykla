@@ -32,9 +32,9 @@ class Service(models.Model):
     
     
 SERVICEORDER_STATUS = (
-    (0, _("confirmed")),
-    (1, _("completed")),
-    (2, _("cancelled")),
+    (0, _("Confirmed")),
+    (1, _("Completed")),
+    (2, _("Cancelled")),
 )
 
 
