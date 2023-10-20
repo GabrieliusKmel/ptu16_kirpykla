@@ -1,0 +1,228 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-19 20:00+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+
+#: kirpykla/models.py:18 kirpykla/templates/kirpykla/service_list.html:9
+msgid "name"
+msgstr "pavadinimas"
+
+#: kirpykla/models.py:19 kirpykla/templates/kirpykla/service_list.html:10
+#: kirpykla/templates/kirpykla/serviceorder_list.html:11
+msgid "price"
+msgstr "kaina"
+
+#: kirpykla/models.py:20 kirpykla/templates/kirpykla/service_list.html:11
+msgid "duration"
+msgstr "paslaugos trukmė"
+
+#: kirpykla/models.py:21
+msgid "about"
+msgstr "apie paslaugą"
+
+#: kirpykla/models.py:24 kirpykla/models.py:52
+#: kirpykla/templates/kirpykla/service_list.html:5
+#: kirpykla/templates/kirpykla/serviceorder_list.html:10
+msgid "service"
+msgstr "paslauga"
+
+#: kirpykla/models.py:25 kirpykla/templates/base.html:19
+msgid "services"
+msgstr "paslaugos"
+
+#: kirpykla/models.py:35
+msgid "confirmed"
+msgstr "patvirtinta"
+
+#: kirpykla/models.py:36
+msgid "completed"
+msgstr "ivykdyta"
+
+#: kirpykla/models.py:37
+msgid "cancelled"
+msgstr "atšaukta"
+
+#: kirpykla/models.py:44 kirpykla/models.py:100
+msgid "barber"
+msgstr "kirpėjas"
+
+#: kirpykla/models.py:57
+msgid "customer"
+msgstr "klientas"
+
+#: kirpykla/models.py:62 kirpykla/templates/kirpykla/serviceorder_list.html:9
+msgid "status"
+msgstr "būsena"
+
+#: kirpykla/models.py:66
+msgid "service_time"
+msgstr "paslaugos laikas"
+
+#: kirpykla/models.py:67
+msgid "created_at"
+msgstr "užsakymas sukurtas"
+
+#: kirpykla/models.py:70
+msgid "service order"
+msgstr "paslaugos užsakymas"
+
+#: kirpykla/models.py:71
+msgid "service orders"
+msgstr "paslaugų užsakymai"
+
+#: kirpykla/models.py:106
+msgid "reviewer"
+msgstr "apžvalgininkas"
+
+#: kirpykla/models.py:110 kirpykla/models.py:131
+msgid "content"
+msgstr "turinys"
+
+#: kirpykla/models.py:112
+msgid "created at"
+msgstr "sukurta"
+
+#: kirpykla/models.py:118
+msgid "barber review"
+msgstr "kirpėjo apžvalga"
+
+#: kirpykla/models.py:119
+msgid "barber reviews"
+msgstr "kirpėjų apžvalgos"
+
+#: kirpykla/models.py:134 kirpykla/models.py:135
+#: kirpykla/templates/base.html:18 kirpykla/templates/kirpykla/about_us.html:6
+msgid "about us"
+msgstr "apie mus"
+
+#: kirpykla/templates/base.html:16 kirpykla/templates/base.html:60
+#: kirpykla/templates/kirpykla/index.html:5
+msgid "barbershop"
+msgstr "kirpykla"
+
+#: kirpykla/templates/base.html:17
+msgid "home"
+msgstr "namai"
+
+#: kirpykla/templates/base.html:20
+#: kirpykla/templates/kirpykla/booking_form.html:3
+#: kirpykla/templates/kirpykla/booking_form.html:5
+msgid "booking"
+msgstr "rezervavimas"
+
+#: kirpykla/templates/base.html:21
+#: kirpykla/templates/kirpykla/barber_list.html:4
+msgid "barbers"
+msgstr "kirpėjai"
+
+#: kirpykla/templates/base.html:24
+msgid "my reservations"
+msgstr "mano rezervacijos"
+
+#: kirpykla/templates/base.html:26
+msgid "admin"
+msgstr "administratorius"
+
+#: kirpykla/templates/base.html:28
+msgid "My profile"
+msgstr "mano paskyra"
+
+#: kirpykla/templates/base.html:29
+msgid "logout"
+msgstr "atsijungti"
+
+#: kirpykla/templates/base.html:31
+msgid "login"
+msgstr "prisijungti"
+
+#: kirpykla/templates/base.html:32
+msgid "sign up"
+msgstr "užsiregistruoti"
+
+#: kirpykla/templates/kirpykla/about_us.html:4
+msgid "About us"
+msgstr "apie mus"
+
+#: kirpykla/templates/kirpykla/barber_detail.html:4
+#: kirpykla/templates/kirpykla/barber_detail.html:12
+msgid "review"
+msgstr "apžvalga"
+
+#: kirpykla/templates/kirpykla/barber_detail.html:6
+msgid "reviews"
+msgstr "apžvalgos"
+
+#: kirpykla/templates/kirpykla/barber_list.html:6
+msgid "choose a barber to write a review"
+msgstr "pasirinkite kirpėją kūrį norite apžvelgti"
+
+#: kirpykla/templates/kirpykla/booking_form.html:10
+msgid "book"
+msgstr "užsakyti"
+
+#: kirpykla/templates/kirpykla/index.html:3
+msgid "Home"
+msgstr "namai"
+
+#: kirpykla/templates/kirpykla/index.html:5
+msgid "welcome to"
+msgstr "sveiki atvykę į"
+
+#: kirpykla/templates/kirpykla/index.html:6
+msgid "Current Database Status"
+msgstr "darbartinė duomenų bazės būsena"
+
+#: kirpykla/templates/kirpykla/index.html:8
+msgid "carsaaaaaa"
+msgstr ""
+
+#: kirpykla/templates/kirpykla/service_list.html:12
+msgid "about service"
+msgstr "apie paslaugą"
+
+#: kirpykla/templates/kirpykla/serviceorder_list.html:5
+msgid "My reservations"
+msgstr "mano rezervacijos"
+
+#: kirpykla/templates/kirpykla/serviceorder_list.html:12
+msgid "service time"
+msgstr "paslaugos laikas"
+
+#: kirpykla/templates/kirpykla/serviceorder_list.html:13
+msgid "actions"
+msgstr "veiksmai"
+
+#: kirpykla/templates/kirpykla/serviceorder_list.html:25
+msgid "This reservation is cancelled."
+msgstr "ši rezervacija yra atšaukta"
+
+#: kirpykla/templates/kirpykla/serviceorder_list.html:27
+msgid "Cancel"
+msgstr "atšaukti"
+
+#: kirpykla/templates/kirpykla/serviceorder_list.html:29
+msgid ""
+"Cancellation is not allowed because time until reservation is less than 24 "
+"hours."
+msgstr "Atšaukimas yra negalimas likus mažiau nei 24h iki paslaugos laiko"
+
+#: kirpykla/views.py:116
+msgid "Review added successfully."
+msgstr "apžvalga pridėta sėkmingai"

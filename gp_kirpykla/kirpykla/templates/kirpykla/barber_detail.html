@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Review {{ block.super }}{% endblock title %}
+{% load i18n %}
+{% block title %}{% trans "review"|capfirst %} {{ block.super }}{% endblock title %}
 {% block content %}
-<h2>Reviews</h2>
+<h2>{% trans "reviews"|title %}</h2>
 {% if user.is_authenticated %}
 <form method="post" action="{{ request.path }}">
     {% csrf_token %}
     <input type="hidden" name="barber" value="{{ selected_barber_id }}">
     {{ form.as_p }}
-    <p><button type="submit">Review</button></p>
+    <p><button type="submit">{% trans "review"|capfirst %}</button></p>
 </form>
 {% endif %}
 {% if object.customer_reviews %}

@@ -113,7 +113,7 @@ class BarberDetailView(generic.edit.FormMixin, generic.DetailView):
         form.instance.barber = self.object
         form.instance.reviewer = self.request.user
         form.save()
-        messages.success(self.request, _('Atsiliepimas pridėtas sėkmingai.'))
+        messages.success(self.request, _('Review added successfully.'))
         return super().form_valid(form)
 
     def get_success_url(self):
