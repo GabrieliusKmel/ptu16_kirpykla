@@ -256,10 +256,10 @@ form p label {
     min-width: 210px;
 }
 .form-book label {
-    min-width: 175px;
+    min-width: 195px;
 }
 .form-book button {
-    margin-left: 195px;
+    margin-left: 215px;
 }
 .headingas {
     text-align: center;
@@ -298,30 +298,20 @@ form p label {
     text-decoration: none;
     color: inherit;
 }
-.about-us h1 {
-    font-size: 2.5rem;
-    color: #171559;
-    background-color: #caa87e;
-    padding-left: 1rem;
-    padding-top: 1rem;
-    margin-top: 0;
-    margin-bottom: 2rem;
-    padding-bottom: 0.75rem;
-    background-size: 100% 100%;
-    border-bottom: 1px solid #171559;
-    box-shadow: 1px 11px 29px -12px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 1px 11px 29px -12px rgba(0,0,0,0.75);
-    -moz-box-shadow: 1px 11px 29px -12px rgba(0,0,0,0.75);
-}
 .about-info {
     display: flex;
-    justify-content: center;
+    justify-content: left;
+    border-top: 1px solid #171559;
 }
 .info-section {
-    margin: 20px;
+    margin-right: 5rem;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
 }
 .info-section img {
     max-width: 300px;
+    margin-bottom: 1rem;
 }
 .info-section ul {
     list-style: none;

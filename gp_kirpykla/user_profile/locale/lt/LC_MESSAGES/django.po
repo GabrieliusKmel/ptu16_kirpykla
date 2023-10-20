@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-20 08:35+0300\n"
+"POT-Creation-Date: 2023-10-20 16:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,7 +67,7 @@ msgstr "prisijungti į"
 
 #: user_profile/templates/registration/login.html:6
 #: user_profile/templates/registration/login.html:10
-#: user_profile/templates/user_profile/signup.html:27
+#: user_profile/templates/user_profile/signup.html:29
 msgid "log in"
 msgstr "prisijungti"
 
@@ -109,7 +109,7 @@ msgstr "įveskite naują slaptažodį"
 
 #: user_profile/templates/registration/password_reset_confirm.html:9
 #: user_profile/templates/registration/password_reset_form.html:9
-#: user_profile/templates/user_profile/signup.html:24
+#: user_profile/templates/user_profile/signup.html:25
 msgid "confirm"
 msgstr "patvirtinti"
 
@@ -161,11 +161,11 @@ msgstr "slaptažodis"
 msgid "repeat password"
 msgstr "pakartokite slaptažodį"
 
-#: user_profile/templates/user_profile/signup.html:26
+#: user_profile/templates/user_profile/signup.html:28
 msgid "if you are have an account, you can"
 msgstr "jeigu jau turite paskyrą, jūs galite"
 
-#: user_profile/templates/user_profile/signup.html:27
+#: user_profile/templates/user_profile/signup.html:29
 msgid "instead"
 msgstr "į ją"
 

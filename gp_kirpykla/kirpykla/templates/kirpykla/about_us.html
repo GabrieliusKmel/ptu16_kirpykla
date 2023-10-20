@@ -5,6 +5,7 @@
 {% block content %}
     <div class="about-us">
         <h1 class="page-heading">{% trans "About Us"|capfirst %}</h1>
+        <p>{{ about_us_content.content|safe }}</p>
         <div class="about-info">
             <div class="info-section">
                 <img src="{% static 'img/map1.jpg' %}" alt="Map Image 1">
@@ -23,6 +24,5 @@
                 </ul>
             </div>
         </div>
-        <p>{{ about_us_content.content|safe }}</p>
     </div>
 {% endblock content %}

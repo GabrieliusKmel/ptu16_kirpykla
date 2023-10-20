@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-20 08:28+0300\n"
+"POT-Creation-Date: 2023-10-20 16:06+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,7 +67,7 @@ msgstr "apie paslaugą"
 msgid "service"
 msgstr "paslauga"
 
-#: kirpykla/models.py:25 kirpykla/templates/base.html:19
+#: kirpykla/models.py:25 kirpykla/templates/base.html:28
 msgid "services"
 msgstr "paslaugos"
 
@@ -132,72 +132,87 @@ msgid "barber reviews"
 msgstr "kirpėjų apžvalgos"
 
 #: kirpykla/models.py:134 kirpykla/models.py:135
-#: kirpykla/templates/base.html:18 kirpykla/templates/kirpykla/about_us.html:6
+#: kirpykla/templates/base.html:27
 msgid "about us"
 msgstr "apie mus"
 
-#: kirpykla/templates/base.html:16 kirpykla/templates/base.html:60
-#: kirpykla/templates/kirpykla/index.html:5
-msgid "barbershop"
-msgstr "kirpykla"
-
-#: kirpykla/templates/base.html:17
+#: kirpykla/templates/base.html:26
 msgid "home"
 msgstr "namai"
 
-#: kirpykla/templates/base.html:20
+#: kirpykla/templates/base.html:29
+#: kirpykla/templates/kirpykla/barber_list.html:4
+msgid "barbers"
+msgstr "kirpėjai"
+
+#: kirpykla/templates/base.html:32
 #: kirpykla/templates/kirpykla/booking_form.html:3
 #: kirpykla/templates/kirpykla/booking_form.html:5
 msgid "booking"
 msgstr "rezervavimas"
 
-#: kirpykla/templates/base.html:21
-#: kirpykla/templates/kirpykla/barber_list.html:4
-msgid "barbers"
-msgstr "kirpėjai"
-
-#: kirpykla/templates/base.html:24
+#: kirpykla/templates/base.html:33
 msgid "my reservations"
 msgstr "mano rezervacijos"
 
-#: kirpykla/templates/base.html:26
+#: kirpykla/templates/base.html:35
 msgid "admin"
 msgstr "administratorius"
 
-#: kirpykla/templates/base.html:28
+#: kirpykla/templates/base.html:37
 msgid "My profile"
 msgstr "mano paskyra"
 
-#: kirpykla/templates/base.html:29
+#: kirpykla/templates/base.html:38
 msgid "logout"
 msgstr "atsijungti"
 
-#: kirpykla/templates/base.html:31
+#: kirpykla/templates/base.html:40
 msgid "login"
 msgstr "prisijungti"
 
-#: kirpykla/templates/base.html:32
+#: kirpykla/templates/base.html:41
 msgid "sign up"
 msgstr "užsiregistruoti"
 
+#: kirpykla/templates/base.html:69 kirpykla/templates/kirpykla/index.html:19
+msgid "barbershop"
+msgstr "kirpykla"
+
 #: kirpykla/templates/kirpykla/about_us.html:4
-msgid "About us"
-msgstr "apie mus"
+#: kirpykla/templates/kirpykla/about_us.html:7
+msgid "About Us"
+msgstr "Apie mus"
+
+#: kirpykla/templates/kirpykla/about_us.html:13
+#: kirpykla/templates/kirpykla/about_us.html:21
+msgid "Address"
+msgstr "Adresas"
+
+#: kirpykla/templates/kirpykla/about_us.html:14
+#: kirpykla/templates/kirpykla/about_us.html:22
+msgid "Phone"
+msgstr "Telefono numeris"
+
+#: kirpykla/templates/kirpykla/about_us.html:15
+#: kirpykla/templates/kirpykla/about_us.html:23
+msgid "Email"
+msgstr "El. paštas"
 
 #: kirpykla/templates/kirpykla/barber_detail.html:4
 #: kirpykla/templates/kirpykla/barber_detail.html:12
 msgid "review"
-msgstr "apžvalga"
+msgstr "atsiliepti"
 
 #: kirpykla/templates/kirpykla/barber_detail.html:6
-msgid "reviews"
-msgstr "apžvalgos"
+msgid "reviews for "
+msgstr "atsiliepimai apie"
 
 #: kirpykla/templates/kirpykla/barber_list.html:6
 msgid "choose a barber to write a review"
 msgstr "pasirinkite kirpėją kūrį norite apžvelgti"
 
-#: kirpykla/templates/kirpykla/booking_form.html:10
+#: kirpykla/templates/kirpykla/booking_form.html:9
 msgid "book"
 msgstr "užsakyti"
 
@@ -205,17 +220,13 @@ msgstr "užsakyti"
 msgid "Home"
 msgstr "namai"
 
-#: kirpykla/templates/kirpykla/index.html:5
+#: kirpykla/templates/kirpykla/index.html:19
 msgid "welcome to"
 msgstr "sveiki atvykę į"
 
-#: kirpykla/templates/kirpykla/index.html:6
-msgid "Current Database Status"
-msgstr "darbartinė duomenų bazės būsena"
-
-#: kirpykla/templates/kirpykla/index.html:8
-msgid "carsaaaaaa"
-msgstr ""
+#: kirpykla/templates/kirpykla/index.html:20
+msgid "CHOOSE A SERVICE!"
+msgstr "PASIRINKITE PASLAUGĄ!"
 
 #: kirpykla/templates/kirpykla/service_list.html:12
 msgid "about service"
@@ -251,6 +262,9 @@ msgstr "Atšaukimas yra negalimas likus mažiau nei 24h iki paslaugos laiko"
 msgid "Booking successful!"
 msgstr "Užsakymas atliktas sėkmingai."
 
-#: kirpykla/views.py:116
+#: kirpykla/views.py:117
 msgid "Review added successfully."
 msgstr "apžvalga pridėta sėkmingai"
+
+#~ msgid "Current Database Status"
+#~ msgstr "darbartinė duomenų bazės būsena"
