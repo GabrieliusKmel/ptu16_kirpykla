@@ -11,10 +11,12 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
             height: 80vh; /* Ensure main takes up the full viewport height */
         }
     </style>
     <main class='juda'>
         <h2 class='headingas'>{% trans "welcome to"|capfirst %} PTU16 {% trans "barbershop"|capfirst %}</h2>
+        <h3 class='headingas2'><a href="{% url "service_list" %}">{% trans "CHOOSE A SERVICE!"|capfirst %}</a></h3>
     </main>
 {% endblock content %}

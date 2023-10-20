@@ -36,8 +36,9 @@ header {
     padding: 1rem;
     margin:  0;
 }
-.logo:hover {
-    color: #D94169;
+.logo img{
+    width: 30px;
+    height: 30px;
 }
 header {
     background-color: #171559;
@@ -57,8 +58,10 @@ header ul.nav{
     padding-inline-start: 0;
     padding: 0;
     margin: 0;
+    text-align: center;
+    align-items: center;
 }
-header ul.nav li {
+ul.nav li {
     margin: 0 0.5rem;
     padding: 0.5rem;
 }
@@ -74,7 +77,9 @@ li.spacer {
     padding: 10px;
     margin: 10px 0;
 }
-
+ul.nav {
+    justify-content: center;
+}
 .box-success {
     background-color: #28a745;
     color: #fff;
@@ -259,6 +264,7 @@ form p label {
 .headingas {
     text-align: center;
     color: #fff; /* Optional: Set text color to be visible on the background */
+    margin-bottom: 0rem;
 }
 .juda h2 {
     color: #171559;
@@ -266,7 +272,65 @@ form p label {
     background-size: 100% 100%;
     background-color: rgba(255, 255, 255, 0.4);
     padding: 0.75rem;
+    width: 100%;
 }
+.headingas2 {
+    display: inline; /* or display: inline-block; */
+    padding: 16px 30px;
+    background-color: #171559;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    width: 100px;
+}
+.headingas2:hover {
+    background-color: #D94169;
+}
+.juda {
+    width: 100%;
+}
+.headingas2 a {
+    text-decoration: none;
+    color: inherit;
+}
+.about-us h1 {
+    font-size: 2.5rem;
+    color: #171559;
+    background-color: #caa87e;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    background-size: 100% 100%;
+    border-bottom: 1px solid #171559;
+    box-shadow: 1px 11px 29px -12px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 11px 29px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 11px 29px -12px rgba(0,0,0,0.75);
+}
+.about-info {
+    display: flex;
+    justify-content: center;
+}
+.info-section {
+    margin: 20px;
+}
+.info-section img {
+    max-width: 300px;
+}
+.info-section ul {
+    list-style: none;
+    padding: 0;
+}
+.info-section ul li {
+    margin-bottom: 10px;
+}
+
 .remember-me-1-hex { color: #D94169; } hvr
 .remember-me-2-hex { color: #171559; } hdr ftr
 .remember-me-3-hex { color: #F2D0A7; } bg color

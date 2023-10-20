@@ -1,13 +1,28 @@
 {% extends "base.html" %}
 {% load static %}
 {% load i18n %}
-{% block title %}{% trans "About us"|capfirst %} {{block.super}}{% endblock title %}
+{% block title %}{% trans "About Us"|capfirst %} {{block.super}}{% endblock title %}
 {% block content %}
-    <h1>{% trans "about us"|capfirst %}</h1>
-    <ul>
-        {{ about_us_content.content|safe }}
-        <li>
-            <img src="{% static 'img/barbershop.jpg' %}">
-        </li>
-    </ul>
+    <div class="about-us">
+        <h1 class="page-heading">{% trans "About Us"|capfirst %}</h1>
+        <div class="about-info">
+            <div class="info-section">
+                <img src="{% static 'img/map1.jpg' %}" alt="Map Image 1">
+                <ul>
+                    <li><strong>{% trans "Address" %}:</strong> 1337 Carson Ave., Los Djangos</li>
+                    <li><strong>{% trans "Phone" %}:</strong> <a href="tel:+11234567890">+1 (123) 456-7890</a></li>
+                    <li><strong>{% trans "Email" %}:</strong> <a href="mailto:info@example.com">ptu16@barbershop.com</a></li>
+                </ul>
+            </div>
+            <div class="info-section">
+                <img src="{% static 'img/map2.jpg' %}" alt="Map Image 2">
+                <ul>
+                    <li><strong>{% trans "Address" %}:</strong> 420 Cortes St., Los Djangos</li>
+                    <li><strong>{% trans "Phone" %}:</strong> <a href="tel:+11234567890">+1 (123) 456-7890</a></li>
+                    <li><strong>{% trans "Email" %}:</strong> <a href="mailto:info@example.com">ptu16@barbershop.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>{{ about_us_content.content|safe }}</p>
+    </div>
 {% endblock content %}

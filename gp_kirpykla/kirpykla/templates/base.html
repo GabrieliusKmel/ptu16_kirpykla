@@ -8,12 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}PTU16 Barbershop{% endblock title %}</title>
     <link rel="stylesheet" href="{% static "css/base_style.css" %}">
-    <style></style>
+    <link rel="icon" href="{% static 'img/icon.svg' %}" type="image/svg">
+    <style>
+        .logo a:hover img {
+            content: url("{% static 'img/icon2.svg' %}");
+        }
+    </style>
 </head>
 <body>
     <header>
         <ul class="nav">
-            <li class="logo"><a href="{% url "index" %}">PTU16 {% trans "barbershop"|title %}</a></li>
+            <li class="logo">
+                <a href="{% url "index" %}">
+                    <img src="{% static 'img/icon.svg' %}" alt="Logo Image">
+                </a>
+            </li>
             <li><a href="{% url "index" %}">{% trans "home"|title %}</a></li>
             <li><a href="{% url "about_us" %}">{% trans "about us"|capfirst %}</a></li>
             <li><a href="{% url "service_list" %}">{% trans "services"|title %}</a></li>
